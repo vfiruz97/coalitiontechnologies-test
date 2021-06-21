@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Clients\Products\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [IndexController::class, 'index']);
+Route::post('/product', [IndexController::class, 'saveProduct']);
+Route::put('/product/{productId}', [IndexController::class, 'updateProduct']);
